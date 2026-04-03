@@ -43,10 +43,10 @@ if(isset($_GET['delete'])) {
         <div class="row">
             <div class="col-md-2 sidebar">
                 <h3><i class="fas fa-mug-hot"></i> Milind Cafe</h3>
-                <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
-                <a href="orders.php"><i class="fas fa-shopping-cart"></i> Orders</a>
-                <a href="menu.php"><i class="fas fa-utensils"></i> Menu</a>
-                <a href="logout.php" class="text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a href="menu.html"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="logout.html" class="text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
             <div class="col-md-10 content">
                 <h2><i class="fas fa-utensils"></i> Manage Menu</h2>
