@@ -1,3 +1,7 @@
+<?php
+include 'db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -466,8 +470,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: var(--gradient);
+            height: 5px
+                        background: var(--gradient);
         }
         
         .footer-content {
@@ -696,8 +700,34 @@
                 <p>Our most loved dishes by customers</p>
             </div>
             
+            <?php
+            $popular_menu = $conn->query("SELECT * FROM menu ORDER BY id DESC LIMIT 8");
+            ?>
+            
             <div class="menu-grid">
-                <div class="col-12 text-center"><p>No menu items available (PHP removed)</p></div>
+                <?php
+                if($popular_menu->num_rows > 0) {
+                    while($item = $popular_menu->fetch_assoc()) {
+                        echo '
+                        <div class="menu-item animate-on-scroll">
+                            <img src="'.$item['image'].'" 
+                                 alt="'.$item['name'].'"
+                                 data-name="'.$item['name'].'"
+                                 onerror="this.onerror=null; setImageByName(this)">
+                            <div class="menu-item-content">
+                                <h4>'.$item['name'].'</h4>
+                                <p>'.$item['description'].'</p>
+                                <div class="price">₹'.$item['price'].'</div>
+                                <a href="payment.php?item='.urlencode($item['name']).'&price='.$item['price'].'&qty=1" class="btn btn-primary">
+                                    <i class="fas fa-shopping-cart"></i> Order Now
+                                </a>
+                            </div>
+                        </div>';
+                    }
+                } else {
+                    echo '<div class="col-12 text-center"><p>No menu items available</p></div>';
+                }
+                ?>
             </div>
             
             <div class="text-center mt-5">
@@ -827,9 +857,11 @@
             const name = imgElement.dataset.name.toLowerCase();
             let foundImage = menuImageMap.default;
             
+            // Check for exact match
             if(menuImageMap[name]) {
                 foundImage = menuImageMap[name];
             } else {
+                // Check for partial match
                 for(let key in menuImageMap) {
                     if(name.includes(key)) {
                         foundImage = menuImageMap[key];
@@ -850,7 +882,7 @@
             
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
-                    if(entry.isIntersecting) {
+                                        if(entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
