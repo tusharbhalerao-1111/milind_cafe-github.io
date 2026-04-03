@@ -1,0 +1,6 @@
+# Treat PHP and JS as text files with UTF-8
+*.php  text eol=lf
+*.js   text eol=lf
+
+# Force UTF-8 encoding (recommended)
+* text=auto eol=lf
