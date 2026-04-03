@@ -1,38 +1,36 @@
-<?php
-include 'db.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="auH0MG6vNWN_pQ-r0Hot-DpGf23VEquva3Og2jQdRlU" />
+    <meta name="google-site-verification" content="auH0MG6vNWN_pQ-r0Hot-DpGf23VEquva3Og2jQdRlU" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milind Cafe - Home</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root { 
-            --primary: #ff6347; 
-            --secondary: #667eea; 
-            --dark: #2c3e50; 
+        :root {
+            --primary: #ff6347;
+            --secondary: #667eea;
+            --dark: #2c3e50;
             --light: #f8f9fa;
             --gradient: linear-gradient(135deg, #ff6347, #667eea);
         }
-        
+       
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+       
         body {
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
             background: #f8f9fa;
         }
-        
+       
         /* Floating Background Animation */
         .floating-bg {
             position: fixed;
@@ -44,7 +42,7 @@ include 'db.php';
             z-index: -1;
             overflow: hidden;
         }
-        
+       
         .floating-shape {
             position: absolute;
             border-radius: 50%;
@@ -52,16 +50,16 @@ include 'db.php';
             opacity: 0.1;
             animation: float 20s infinite ease-in-out;
         }
-        
+       
         .shape-1 { width: 300px; height: 300px; top: 10%; left: 10%; animation-delay: 0s; }
         .shape-2 { width: 200px; height: 200px; top: 60%; right: 10%; animation-delay: 5s; }
         .shape-3 { width: 150px; height: 150px; bottom: 10%; left: 20%; animation-delay: 10s; }
-        
+       
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-50px) rotate(180deg); }
         }
-        
+       
         /* Navbar Styling */
         .navbar {
             background: rgba(44, 62, 80, 0.95) !important;
@@ -70,7 +68,7 @@ include 'db.php';
             transition: all 0.3s ease;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
-        
+       
         .navbar-brand {
             color: var(--primary) !important;
             font-size: 1.8rem;
@@ -78,12 +76,12 @@ include 'db.php';
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
-        
+       
         .navbar-brand:hover {
             transform: scale(1.05);
             text-shadow: 0 0 20px rgba(255,99,71,0.5);
         }
-        
+       
         .nav-link {
             color: white !important;
             margin-right: 15px;
@@ -91,7 +89,7 @@ include 'db.php';
             position: relative;
             transition: all 0.3s ease;
         }
-        
+       
         .nav-link::after {
             content: '';
             position: absolute;
@@ -103,19 +101,19 @@ include 'db.php';
             transition: width 0.3s ease;
             box-shadow: 0 0 10px var(--primary);
         }
-        
+       
         .nav-link:hover::after {
             width: 100%;
         }
-        
+       
         .nav-link:hover {
             color: var(--primary) !important;
             transform: translateY(-2px);
         }
-        
-        /* Hero Section with Parallax */
+       
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
                         url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920');
             background-size: cover;
             background-position: center;
@@ -129,7 +127,7 @@ include 'db.php';
             position: relative;
             overflow: hidden;
         }
-        
+       
         .hero::before {
             content: '';
             position: absolute;
@@ -140,64 +138,40 @@ include 'db.php';
             background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);
             animation: pulse 3s ease-in-out infinite;
         }
-        
+       
         @keyframes pulse {
             0%, 100% { opacity: 0.5; }
             50% { opacity: 0.8; }
         }
-        
+       
         .hero-content {
             position: relative;
             z-index: 1;
             animation: fadeInUp 1s ease-out;
         }
-        
+       
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
+       
         .hero h1 {
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 20px;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            animation: slideInLeft 1s ease-out;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
+       
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 30px;
-            animation: fadeIn 1.5s ease-out;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
+       
         .btn-primary {
             background: var(--gradient);
             border: none;
@@ -207,37 +181,22 @@ include 'db.php';
             border-radius: 50px;
             box-shadow: 0 10px 30px rgba(255,99,71,0.4);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
             color: white;
+            overflow: hidden;
+            position: relative;
         }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
+       
         .btn-primary:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(255,99,71,0.6);
         }
-        
+       
         /* Features Section */
         .features {
             padding: 100px 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
-        
+       
         .feature-card {
             background: white;
             padding: 40px 30px;
@@ -246,296 +205,125 @@ include 'db.php';
             transition: all 0.3s ease;
             text-align: center;
             height: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.5);
         }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-        
+       
         .feature-card:hover {
             transform: translateY(-15px) scale(1.02);
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
-        
+       
         .feature-icon {
             font-size: 3rem;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            transition: all 0.3s ease;
-            display: inline-block;
         }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.2) rotate(10deg);
-            filter: drop-shadow(0 0 10px rgba(255,99,71,0.5));
-        }
-        
-        .feature-card h4 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
+       
         /* Popular Menu Section */
         .popular-menu {
             padding: 100px 0;
             background: white;
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
+       
         .section-title h2 {
             font-size: 3rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 15px;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .section-title p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-        
+       
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-        
+       
         .menu-item {
             background: white;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            position: relative;
-            transform-style: preserve-3d;
         }
-        
+       
         .menu-item:hover {
-            transform: translateY(-15px) rotateX(5deg);
+            transform: translateY(-15px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
-        
+       
         .menu-item img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+       
         .menu-item:hover img {
             transform: scale(1.1);
         }
-        
+       
         .menu-item-content {
             padding: 25px;
-            position: relative;
-            z-index: 2;
         }
-        
-        .menu-item h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-        
-        .menu-item p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
+       
         .menu-item .price {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
-            display: block;
-            margin-bottom: 15px;
+            margin: 15px 0;
         }
-        
-        .menu-item .btn {
-            width: 100%;
-            margin-top: 15px;
-            border-radius: 30px;
-        }
-        
-        /* Testimonials Section */
+       
+        /* Testimonials */
         .testimonials {
             padding: 100px 0;
             background: linear-gradient(135deg, var(--secondary) 0%, #764ba2 100%);
             color: white;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
+       
         .testimonial-card {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 20px;
-            margin: 20px;
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
         }
-        
+       
         .testimonial-card:hover {
             background: rgba(255,255,255,0.2);
             transform: scale(1.05) translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
-        
-        .testimonial-card p {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        
-        .testimonial-card .stars {
+       
+        .stars {
             color: #ffd700;
             margin-bottom: 15px;
-            animation: starPulse 2s infinite;
         }
-        
-        @keyframes starPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .testimonial-card h5 {
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-        
+       
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
             padding: 60px 0 30px;
-            position: relative;
         }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px
-                        background: var(--gradient);
-        }
-        
+       
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
-        .footer-section h4 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .footer-section h4::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .footer-section h4:hover::after {
-            width: 100%;
-        }
-        
-        .footer-section p {
-            color: #ccc;
-            line-height: 1.8;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-section ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .footer-section ul li a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-        
+       
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+       
         .social-links a {
             width: 40px;
             height: 40px;
@@ -545,80 +333,42 @@ include 'db.php';
             align-items: center;
             justify-content: center;
             color: white;
-            text-decoration: none;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .social-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .social-links a:hover::before {
-            opacity: 1;
-        }
-        
+       
         .social-links a:hover {
-            transform: translateY(-5px) rotate(360deg);
+            background: var(--primary);
+            transform: rotate(360deg);
         }
-        
+       
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
-        
+       
         /* Scroll Animations */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.8s ease;
         }
-        
+       
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Staggered Animation Delays */
-        .animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
-        .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
-        .animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
-        .animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
-        .animate-on-scroll:nth-child(5) { transition-delay: 0.5s; }
-        .animate-on-scroll:nth-child(6) { transition-delay: 0.6s; }
-        
-        /* Responsive */
+       
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .floating-shape {
-                opacity: 0.05;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-title h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Background Elements -->
+
+    <!-- Floating Background -->
     <div class="floating-bg">
         <div class="floating-shape shape-1"></div>
         <div class="floating-shape shape-2"></div>
@@ -628,7 +378,7 @@ include 'db.php';
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="index.html">
                 <i class="fas fa-mug-hot"></i> Milind Cafe
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -636,11 +386,10 @@ include 'db.php';
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin/login.php">Admin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -651,7 +400,7 @@ include 'db.php';
         <div class="hero-content">
             <h1>Welcome to Milind Cafe</h1>
             <p>Experience the Taste of Authentic Indian Cuisine</p>
-            <a href="menu.php" class="btn btn-primary">
+            <a href="menu.html" class="btn btn-primary">
                 <i class="fas fa-utensils"></i> View Menu
             </a>
         </div>
@@ -660,11 +409,11 @@ include 'db.php';
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <div class="section-title animate-on-scroll">
+            <div class="section-title text-center mb-5 animate-on-scroll">
                 <h2>Why Choose Us</h2>
                 <p>We provide the best food and service in town</p>
             </div>
-            
+           
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="feature-card animate-on-scroll">
@@ -673,7 +422,6 @@ include 'db.php';
                         <p>Fresh ingredients prepared daily with authentic recipes</p>
                     </div>
                 </div>
-                
                 <div class="col-md-4 mb-4">
                     <div class="feature-card animate-on-scroll">
                         <i class="fas fa-truck feature-icon"></i>
@@ -681,7 +429,6 @@ include 'db.php';
                         <p>Hot food delivered to your doorstep within 30 minutes</p>
                     </div>
                 </div>
-                
                 <div class="col-md-4 mb-4">
                     <div class="feature-card animate-on-scroll">
                         <i class="fas fa-heart feature-icon"></i>
@@ -696,43 +443,56 @@ include 'db.php';
     <!-- Popular Menu Section -->
     <section class="popular-menu">
         <div class="container">
-            <div class="section-title animate-on-scroll">
+            <div class="section-title text-center mb-5 animate-on-scroll">
                 <h2>Popular Menu Items</h2>
                 <p>Our most loved dishes by customers</p>
             </div>
-            
-            <?php
-            $popular_menu = $conn->query("SELECT * FROM menu ORDER BY id DESC LIMIT 8");
-            ?>
-            
+           
             <div class="menu-grid">
-                <?php
-                if($popular_menu->num_rows > 0) {
-                    while($item = $popular_menu->fetch_assoc()) {
-                        echo '
-                        <div class="menu-item animate-on-scroll">
-                            <img src="'.$item['image'].'" 
-                                 alt="'.$item['name'].'"
-                                 data-name="'.$item['name'].'"
-                                 onerror="this.onerror=null; setImageByName(this)">
-                            <div class="menu-item-content">
-                                <h4>'.$item['name'].'</h4>
-                                <p>'.$item['description'].'</p>
-                                <div class="price">₹'.$item['price'].'</div>
-                                <a href="payment.php?item='.urlencode($item['name']).'&price='.$item['price'].'&qty=1" class="btn btn-primary">
-                                    <i class="fas fa-shopping-cart"></i> Order Now
-                                </a>
-                            </div>
-                        </div>';
-                    }
-                } else {
-                    echo '<div class="col-12 text-center"><p>No menu items available</p></div>';
-                }
-                ?>
+                <!-- Static Menu Items (since PHP is removed) -->
+                <div class="menu-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=600" alt="Butter Chicken">
+                    <div class="menu-item-content">
+                        <h4>Butter Chicken</h4>
+                        <p>Tender chicken cooked in rich tomato gravy with butter and spices</p>
+                        <div class="price">₹320</div>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="menu-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600" alt="Biryani">
+                    <div class="menu-item-content">
+                        <h4>Chicken Biryani</h4>
+                        <p>Aromatic basmati rice cooked with spices and tender chicken</p>
+                        <div class="price">₹280</div>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="menu-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600" alt="Pizza">
+                    <div class="menu-item-content">
+                        <h4>Margherita Pizza</h4>
+                        <p>Fresh mozzarella, basil, and tangy tomato sauce on thin crust</p>
+                        <div class="price">₹250</div>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="menu-item animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" alt="Burger">
+                    <div class="menu-item-content">
+                        <h4>Cheese Burger</h4>
+                        <p>Juicy beef patty with cheese, lettuce, and special sauce</p>
+                        <div class="price">₹180</div>
+                        <a href="#" class="btn btn-primary w-100">Order Now</a>
+                    </div>
+                </div>
             </div>
-            
+
             <div class="text-center mt-5">
-                <a href="menu.php" class="btn btn-primary btn-lg">
+                <a href="menu.html" class="btn btn-primary btn-lg">
                     <i class="fas fa-utensils"></i> View Full Menu
                 </a>
             </div>
@@ -742,50 +502,36 @@ include 'db.php';
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <div class="section-title animate-on-scroll">
+            <div class="section-title text-center mb-5 animate-on-scroll">
                 <h2>What Our Customers Say</h2>
                 <p>Real reviews from happy customers</p>
             </div>
-            
+           
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="testimonial-card animate-on-scroll">
                         <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            ★★★★☆
                         </div>
-                        <p>"Best food in town! The butter chicken is absolutely delicious. Highly recommended!"</p>
+                        <p>"Best food in town! The butter chicken is absolutely delicious."</p>
                         <h5>- Rahul Sharma</h5>
                     </div>
                 </div>
-                
                 <div class="col-md-4 mb-4">
                     <div class="testimonial-card animate-on-scroll">
                         <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            ★★★★★
                         </div>
-                        <p>"Fast delivery and amazing taste. The biryani is to die for! Will order again."</p>
+                        <p>"Fast delivery and amazing taste. The biryani is to die for!"</p>
                         <h5>- Priya Patel</h5>
                     </div>
                 </div>
-                
                 <div class="col-md-4 mb-4">
                     <div class="testimonial-card animate-on-scroll">
                         <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            ★★★★☆
                         </div>
-                        <p>"Great service and delicious food. The masala dosa is my favorite!"</p>
+                        <p>"Great service and delicious food. Highly recommended!"</p>
                         <h5>- Amit Kumar</h5>
                     </div>
                 </div>
@@ -799,7 +545,7 @@ include 'db.php';
             <div class="footer-content">
                 <div class="footer-section">
                     <h4><i class="fas fa-mug-hot"></i> Milind Cafe</h4>
-                    <p>Serving delicious food since 2020. We believe in quality, taste, and customer satisfaction.</p>
+                    <p>Serving delicious food since 2020. Quality, taste, and satisfaction guaranteed.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -807,142 +553,59 @@ include 'db.php';
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                
+               
                 <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="menu.php">Menu</a></li>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="menu.html" class="text-white text-decoration-none">Menu</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
-                
+               
                 <div class="footer-section">
                     <h4>Contact Info</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> milindcafe Nagsenvana, Chhawni, Aurangabad 431002, Maharashtra</li>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> Nagsenvana, Chhawni, Aurangabad 431002</li>
                         <li><i class="fas fa-phone"></i> +91 9373491929</li>
                         <li><i class="fas fa-envelope"></i> info@milindcafe.com</li>
                         <li><i class="fas fa-clock"></i> Mon - Sun: 10 AM - 10 PM</li>
                     </ul>
                 </div>
             </div>
-            
+           
             <div class="footer-bottom">
                 <p>&copy; 2026 Milind Cafe. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Name-wise Image Mapping
-        const menuImageMap = {
-            'butter chicken': 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400',
-            'biryani': 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400',
-            'pizza': 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400',
-            'burger': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400',
-            'pasta': 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400',
-            'coffee': 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400',
-            'tea': 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400',
-            'salad': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
-            'dessert': 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400',
-            'chicken': 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400',
-            'paneer': 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400',
-            'default': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400'
-        };
-
-        function setImageByName(imgElement) {
-            const name = imgElement.dataset.name.toLowerCase();
-            let foundImage = menuImageMap.default;
-            
-            // Check for exact match
-            if(menuImageMap[name]) {
-                foundImage = menuImageMap[name];
-            } else {
-                // Check for partial match
-                for(let key in menuImageMap) {
-                    if(name.includes(key)) {
-                        foundImage = menuImageMap[key];
-                        break;
-                    }
-                }
-            }
-            
-            imgElement.src = foundImage;
-        }
-
-        // Scroll Animation with Staggered Delays
+        // Scroll Animation
         document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                                        if(entry.isIntersecting) {
+                    if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, observerOptions);
-            
-            document.querySelectorAll('.animate-on-scroll').forEach(function(element) {
-                observer.observe(element);
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
             });
-            
+
             // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                if(window.scrollY > 50) {
-                    document.querySelector('.navbar').style.background = 'rgba(44, 62, 80, 1)';
-                    document.querySelector('.navbar').style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(44, 62, 80, 1)';
                 } else {
-                    document.querySelector('.navbar').style.background = 'rgba(44, 62, 80, 0.95)';
-                    document.querySelector('.navbar').style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                    navbar.style.background = 'rgba(44, 62, 80, 0.95)';
                 }
             });
-            
-            // Button Ripple Effect
-            document.querySelectorAll('.btn-primary').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    let x = e.clientX - e.target.offsetLeft;
-                    let y = e.clientY - e.target.offsetTop;
-                    
-                    let ripples = document.createElement('span');
-                    ripples.style.left = x + 'px';
-                    ripples.style.top = y + 'px';
-                    ripples.style.position = 'absolute';
-                    ripples.style.background = 'rgba(255, 255, 255, 0.5)';
-                    ripples.style.transform = 'translate(-50%, -50%)';
-                    ripples.style.pointerEvents = 'none';
-                    ripples.style.borderRadius = '50%';
-                    ripples.style.animation = 'ripple 0.6s linear';
-                    ripples.style.width = '100px';
-                    ripples.style.height = '100px';
-                    ripples.style.marginLeft = '-50px';
-                    ripples.style.marginTop = '-50px';
-                    
-                    this.style.position = 'relative';
-                    this.style.overflow = 'hidden';
-                    this.appendChild(ripples);
-                    
-                    setTimeout(() => {
-                        ripples.remove();
-                    }, 600);
-                });
-            });
-            
-            // Add ripple animation keyframes
-            const style = document.createElement('style');
-            style.innerHTML = `
-                @keyframes ripple {
-                    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-                    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
         });
     </script>
 </body>
