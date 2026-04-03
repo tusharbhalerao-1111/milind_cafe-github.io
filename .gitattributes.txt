@@ -1,6 +1,25 @@
-# Treat PHP and JS as text files with UTF-8
-*.php  text eol=lf
-*.js   text eol=lf
+# Set default behavior for all files
+* text=auto
 
-# Force UTF-8 encoding (recommended)
-* text=auto eol=lf
+# Ensure consistent line endings for scripts
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.php text eol=lf
+
+# Treat images and binaries as binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+
+# Prevent Git from modifying node_modules (if any)
+node_modules/* -text
+
+# Optional: Mark Markdown as text
+*.md text
+
+# Optional: Force LF endings for shell scripts
+*.sh text eol=lf
